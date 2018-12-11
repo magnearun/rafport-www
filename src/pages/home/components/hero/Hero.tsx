@@ -9,6 +9,7 @@ import s from './Hero.scss';
 interface IProps {
   title: string;
   description: string;
+  image: any;
 }
 
 export default class Hero extends React.PureComponent<IProps> {
@@ -50,11 +51,11 @@ export default class Hero extends React.PureComponent<IProps> {
   }
 
   public render() {
-    const { title, description } = this.props;
+    const { title, description, image } = this.props;
 
     return (
       <div className={s.hero}>
-        <Parallax image={hero}>
+        <Parallax image={image}>
           <div className={s.hero__overlay}>
             <h1 className={s.hero__heading} ref={this.heading}>{title}</h1>
             <p className={s.hero__description} ref={this.description}>

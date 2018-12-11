@@ -32,8 +32,6 @@ function Products({ data, storeContext }: IProps) {
     <React.Fragment>
       <Helmet title="About" />
 
-      <Hero />
-
       <Segment color={EColor.WHITE}>
         <Grid>
           {products.map((product: any) => {

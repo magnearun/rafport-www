@@ -2,12 +2,12 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import _get from 'lodash/get';
-
 import Hero from './home/components/hero/Hero';
 import SlickCarousel from './home/components/slick-carousel/SlickCarousel';
 import Collection from './home/components/collection/Collection';
 import Clients from './home/components/clients/Clients';
 import ABB from 'assets/svg/abb.svg';
+import Img from "gatsby-image"
 
 export default class Home extends React.PureComponent<any> {
 
@@ -24,6 +24,7 @@ export default class Home extends React.PureComponent<any> {
         <Hero
           title={_get(home, 'title.text', '')}
           description={_get(home, 'description.text', '')}
+          image={_get(home, 'image.localFile.childImageSharp.fixed', [])}
         />
 
         {/* <SlickCarousel>
@@ -46,8 +47,6 @@ export default class Home extends React.PureComponent<any> {
           <ABB />
           <ABB />
         </Clients>
-
-
       </React.Fragment>
     );
   }
@@ -82,6 +81,15 @@ export const query = graphql`
         }
         description {
           text
+        }
+        image {
+          localFile {
+            childImageSharp {
+              fixed(width: 1840, height: 1040, quality: 100) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
         }
       }
     }
