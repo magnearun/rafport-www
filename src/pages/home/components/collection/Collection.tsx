@@ -12,7 +12,7 @@ export default function Collection({ title, image }: IProps) {
 
   return (
     <div className={s.collection}>
-      <Img resolutions={image} />
+      {/* <Img resolutions={image} /> */}
     </div>
   );
 }

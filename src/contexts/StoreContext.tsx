@@ -40,16 +40,20 @@ const StoreContext = React.createContext(defaultStoreContext);
 
 export class StoreProvider extends React.Component<IProps, IState> {
 
-  async componentWillMount() {
+  async componentDidMount() {
     const { client } = this.state;
 
-    const checkout  = await client.checkout.create();
-    const shop = await client.shop.fetchInfo();
+    try {
+      const checkout  = await client.checkout.create();
+      const shop = await client.shop.fetchInfo();
 
-    this.setState({
-      checkout,
-      shop,
-    });
+      this.setState({
+        checkout,
+        shop,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   addVariantToCart = async (variantId: string, quantity: number = 1) => {
@@ -64,33 +68,45 @@ export class StoreProvider extends React.Component<IProps, IState> {
 
     console.log('addVariantToCart', lineItemsToAdd);
 
+    try {
+      const checkout = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
 
-    const checkout = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
-
-    this.setState({
-      checkout,
-    });
+      this.setState({
+        checkout,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   removeLineItem = async (lineItemId: string) => {
     const checkoutId = this.state.checkout.id;
 
-    const checkout = await this.state.client.checkout.removeLineItems(checkoutId, [lineItemId]);
+    try {
+      const checkout = await this.state.client.checkout.removeLineItems(checkoutId, [lineItemId]);
 
-    this.setState({
-      checkout,
-    });
+      this.setState({
+        checkout,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   updateLineItem = async (lineItemId: string, quantity: number) => {
     const checkoutId = this.state.checkout.id;
     const lineItemsToUpdate = [{ id: lineItemId, quantity }]
 
-    const checkout = await this.state.client.checkout.updateLineItems(checkoutId, lineItemsToUpdate);
+    try {
+      const checkout = await this.state.client.checkout.updateLineItems(checkoutId, lineItemsToUpdate);
 
-    this.setState({
-      checkout,
-    });
+      this.setState({
+        checkout,
+      });
+
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   toggleCart = () => {

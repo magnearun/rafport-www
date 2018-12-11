@@ -31,18 +31,6 @@ module.exports = {
       },
     },
 
-    {
-      resolve: 'gatsby-plugin-polyfill-io',
-      options: {
-        features: [
-          'default',
-          'Array.prototype.includes',
-          'Object.entries',
-          'Object.keys',
-        ],
-      },
-    },
-
     // In your gatsby-config.js
       /*
       * Gatsby's data processing layer begins with “source”
