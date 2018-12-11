@@ -1,0 +1,25 @@
+@import '~styles/config';
+
+.parallax {
+  &__spacer {
+    @include hero;
+    background: transparent;
+
+    &.isSmall {
+      @include heroSmall;
+      background: transparent;
+    }
+  }
+
+  &Spaced {
+    margin-bottom: $gutter * 2;
+
+    @media (min-width: $min-desktop) {
+      margin-bottom: $gutter * 3;
+    }
+  }
+
+  img { // stylelint-disable-line
+    max-width: none;
+  }
+}

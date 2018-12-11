@@ -1,0 +1,68 @@
+@import '~styles/config';
+
+.header {
+  display: block;
+
+  z-index: $z-index-10;
+  margin: 0 0 $gutter;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  &__container {
+    @include container;
+  }
+
+  &__row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: $gutter 0;
+
+  }
+
+  &__name {
+    opacity: var(--opacity);
+
+    will-change: opacity;
+    font-size: 16px;
+    text-transform: bold;
+  }
+
+  &__logo {
+    @include reset-anchor;
+
+    z-index: 10;
+
+    &Svg {
+      height: 40px;
+      width: 40px;
+      display: block;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    margin-left: auto;
+  }
+
+  &__menu {
+    z-index: 10;
+    margin-left: 30px;
+    width: 30px;
+    height: 30px;
+
+    cursor: pointer;
+    fill: #333;
+
+
+  }
+}

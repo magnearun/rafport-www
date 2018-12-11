@@ -1,0 +1,10 @@
+@import '~styles/config';
+
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+
+  &__item {
+    flex: 0 1 50%;
+  }
+}

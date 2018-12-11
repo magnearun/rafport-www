@@ -1,0 +1,157 @@
+@import '~styles/config';
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+
+  &__container {
+    margin-left: auto;
+    margin-right: auto;
+
+    max-width: $page-limit;
+  }
+
+  &Default &__container {
+    @include container;
+  }
+
+  &HideArrows {
+
+    @media (min-width: 1940px) {
+      :global {
+
+        .slick-arrow { // stylelint-disable-line
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
+
+:global {
+  .slick-slider {
+    position: static;
+    margin-left: -6px;
+
+    touch-action: auto;
+  }
+
+  .slick-slide {
+    padding: 0 6px;
+    width: 510px;
+
+
+    &:first-child {
+      // padding-left: 0;
+    }
+
+    &:last-child {
+      // padding-right: 0;
+    }
+  }
+
+  .slick-list {
+    overflow: visible;
+  }
+
+  .slick-arrow {
+    z-index: 1;
+
+    height: 54px;
+    width: 54px;
+
+    background: #fff;
+
+    border-radius: 50%;
+
+    &.slick-disabled {
+      opacity: 0;
+      pointer-events: none;
+
+      transition: opacity $transition-leave;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    // slick-arrow slick-prev slick-disabled
+
+    &::before {
+      content: '';
+      position: absolute;
+      opacity: 1;
+
+      width: 8px;
+      height: 2px;
+      background-color: $color-font;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      opacity: 1;
+
+      width: 8px;
+      height: 2px;
+      background-color: $color-font;
+    }
+
+    &:hover,
+    &:focus {
+      background: #fff;
+    }
+
+
+  }
+
+  .slick-prev {
+    left: $gutter / 2;
+
+    @media (min-width: $min-tablet) {
+      left: ($gutter + 6px);
+    }
+
+    &::before {
+      top: 23px;
+      left: 22px;
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      top: 28px;
+      left: 22px;
+      transform: rotate(45deg);
+    }
+  }
+
+  .slick-next {
+    right: $gutter / 2;
+
+    @media (min-width: $min-tablet) {
+      right: ($gutter + 6px);
+    }
+
+    &::before {
+      top: 23px;
+      left: 25px;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      top: 28px;
+      left: 25px;
+      transform: rotate(-45deg);
+    }
+  }
+
+  .gallery-carousel {
+    padding: 0 55px;
+
+    @media (min-width: $min-tablet) {
+      padding: 0;
+    }
+  }
+
+}

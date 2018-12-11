@@ -1,0 +1,33 @@
+@import '~styles/config';
+
+.nav {
+  display: inline;
+
+  margin-left: 30px;
+
+  &__list {
+    @include reset-list;
+
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  &__item {
+    z-index: 10;
+
+    margin-right: 15px;
+    color: #333;
+    font-weight: 500;
+  }
+
+  &__link {
+    @include reset-anchor;
+
+    @include responsive-font($font-size-min, 18px);
+
+    &:hover,
+    &Active {
+      margin-bottom: 1px solid #333;
+    }
+  }
+}

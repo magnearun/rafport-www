@@ -1,0 +1,66 @@
+@import '~styles/config';
+
+.button {
+  @include reset-button;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: calc(50% - 27px);
+
+  z-index: 99;
+  opacity: 1;
+
+  height: 54px;
+  width: 54px;
+
+  cursor: pointer;
+
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+
+
+  transition: opacity 0.2s ease-in-out, transform $transition-leave ease-in-out;
+
+  svg { // stylelint-disable-line
+    transition: transform $transition-leave ease-in-out;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+
+    svg { // stylelint-disable-line
+      transform: scale(1.2);
+      transition: transform $transition-enter ease-in-out;
+    }
+  }
+
+  &::after {
+    content: '';
+    @include fit;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  &Next {
+    right: 25px;
+
+    svg { // stylelint-disable-line
+      position: relative;
+      left: 1px;
+    }
+  }
+
+  &Prev {
+    left: 25px;
+
+    svg { // stylelint-disable-line
+      position: relative;
+      left: -2px;
+    }
+  }
+}

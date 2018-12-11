@@ -1,0 +1,26 @@
+@import '~styles/config';
+
+.clients {
+  padding: 90px 0;
+  background-color: #333;
+
+
+  &__list {
+    @include reset-list;
+
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 auto;
+  }
+
+  &__img {
+    height: 60px;
+    fill: #fff;
+  }
+}
