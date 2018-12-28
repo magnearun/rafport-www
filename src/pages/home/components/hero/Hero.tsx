@@ -38,17 +38,17 @@ export default class Hero extends React.PureComponent<IProps> {
     );
 
 
-    window.addEventListener('scroll', this.handleScroll);
+    // window.addEventListener('scroll', this.handleScroll);
 
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
+  // componentWillUnmount() {
+  //   window.removeEventListener('scroll', this.handleScroll);
+  // }
 
-  handleScroll = () => {
-    this.heading.current.style.setProperty('--opacity', 1 - window.scrollY / 150);
-  }
+  // handleScroll = () => {
+  //   this.heading.current.style.setProperty('--opacity', 1 - window.scrollY / 150);
+  // }
 
   public render() {
     const { title, description, image } = this.props;

@@ -3,13 +3,14 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import _get from 'lodash/get';
 import Hero from './home/components/hero/Hero';
-import SlickCarousel from './home/components/slick-carousel/SlickCarousel';
-import Collection from './home/components/collection/Collection';
-import Clients from './home/components/clients/Clients';
-import ABB from 'assets/svg/abb.svg';
-import Img from "gatsby-image"
+import MailingList from 'components/mailing-list/MailingList';
 
 export default class Home extends React.PureComponent<any> {
+
+  onChange = (n) => {
+    console.log(n);
+
+  }
 
   render() {
     console.log(this.props)
@@ -41,12 +42,14 @@ export default class Home extends React.PureComponent<any> {
             })}
         </SlickCarousel> */}
 
-        <Clients>
+        <MailingList />
+
+        {/* <Clients>
           <ABB />
           <ABB />
           <ABB />
           <ABB />
-        </Clients>
+        </Clients> */}
       </React.Fragment>
     );
   }

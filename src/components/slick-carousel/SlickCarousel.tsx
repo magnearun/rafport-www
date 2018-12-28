@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { Carousel } from 'antd';
 
 import Button from './Button';
 
 import s from './SlickCarousel.scss';
 
 export default class SlickCarousel extends PureComponent {
+
+  sliderRef = React.createRef();
 
   static propTypes = {
     children: PropTypes.node,
@@ -33,8 +33,8 @@ export default class SlickCarousel extends PureComponent {
     arrows: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     draggable: false,
     touchThreshold: 20,
     nextArrow: <Button next />,
@@ -48,7 +48,7 @@ export default class SlickCarousel extends PureComponent {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 720,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -64,29 +64,22 @@ export default class SlickCarousel extends PureComponent {
     ],
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.category !== prevProps.category) {
-      this.slider.slickGoTo(0);
-    }
-  }
-
   render() {
-    const { children, inHeader, ...props } = this.props;
+    const { children, ...props } = this.props;
 
     const count = React.Children.count(children);
 
     const hideArrows = (count - 1) === this.props.slidesToShow;
 
     return (
-      <div className={s('carousel', { [s.carouselHeader]: inHeader, [s.carouselDefault]: !inHeader, [s.carouselHideArrows]: hideArrows })}>
+      <div className={s('carousel', { [s.carouselDefault]: true, [s.carouselHideArrows]: hideArrows })}>
         <div className={s.carousel__container}>
-          <Slider
+          <Carousel
             className={s.slider}
-            ref={(el) => { this.slider = el; }}
             {...props}
           >
             {children}
-          </Slider>
+          </Carousel>
         </div>
       </div>
     );

@@ -12,6 +12,10 @@ interface IButtonProps {
 
 export default class Button extends React.PureComponent<IButtonProps> {
 
+  static defaultProps = {
+    rounded: false,
+  }
+
   render() {
     const {
       to,
@@ -20,6 +24,7 @@ export default class Button extends React.PureComponent<IButtonProps> {
       disabled,
       secondary,
       block,
+      rounded,
       ...rest // tslint:disable-line
     } = this.props;
 
@@ -29,7 +34,7 @@ export default class Button extends React.PureComponent<IButtonProps> {
     const isExternal = isLink && /^((https?:)?\/\/|[0-9a-zA-Z]+:)/.test(to || '');
 
     // Extend className of the rest
-    passProps.className = s(s.button, className, { disabled, secondary, block });
+    passProps.className = s(s.button, className, { disabled, secondary, block, rounded });
     passProps.disabled = disabled;
 
     // http, https, //, mailto, etc.

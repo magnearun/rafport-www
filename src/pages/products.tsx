@@ -7,8 +7,8 @@ import { withStoreContext, IStoreContext } from 'contexts/StoreContext';
 
 import Segment, { EColor } from 'components/segment/Segment';
 import Product from 'components/product/Product';
+import Grid from 'components/grid/Grid';
 
-import Grid from './products/components/grid/Grid';
 import Hero from './products/components/hero/Hero';
 
 interface IProps {
@@ -42,11 +42,12 @@ function Products({ data, storeContext }: IProps) {
                 key={_get(product, 'node.id', '')}
                 id={_get(product, 'node.id', '')}
                 title={_get(product, 'node.title', '')}
-                // description={_get(node, 'description', '')}
+                handle={_get(product, 'node.handle', '')}
                 variants={_get(product, 'node.variants', [])}
-                image={_get(product, 'node.images', [])[0].localFile.childImageSharp.resolutions}
+                image={_get(product, 'node.images', [])[0].localFile.childImageSharp.fluid}
                 onAddToCart={addToCart}
               />
+
             );
           })}
         </Grid>
@@ -72,8 +73,8 @@ export const query = graphql`
           images {
             localFile {
               childImageSharp {
-                resolutions(width: 300, height: 300) {
-                  ...GatsbyImageSharpResolutions_withWebp
+                fluid(maxWidth: 910) {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }

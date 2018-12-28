@@ -29,8 +29,8 @@ export default class GridOverlay extends React.Component<IProps, IState> {
   ref: React.RefObject<HTMLDivElement> = React.createRef();
 
   state = {
-    isHorizontalVisible: false,
-    isVerticalVisible: false,
+    isHorizontalVisible: true,
+    isVerticalVisible: true,
   };
 
   /**

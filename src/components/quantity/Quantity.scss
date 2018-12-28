@@ -1,0 +1,19 @@
+@import '~styles/config';
+
+.quantity {
+  display: inline-flex;
+  flex-flow: row nowrap;
+
+  &__icon {
+    font-size: 20px;
+
+    cursor: pointer;
+
+  }
+
+  &__value {
+    margin: 0 15px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}

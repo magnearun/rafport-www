@@ -43,3 +43,51 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }, { postCssPlugins, 
     },
   });
 }
+
+
+exports.createPages = ({ graphql, actions }) => {
+  return new Promise((resolve, reject) => {
+    graphql(`
+      query {
+        allShopifyProduct {
+          edges {
+            node {
+              id
+              handle
+            }
+          }
+        }
+
+        allPrismicCollection {
+          edges {
+            node {
+              uid
+            }
+          }
+        }
+      }
+    `)
+    .then((result) => {
+      result.data.allShopifyProduct.edges.forEach(({ node }) => {
+        actions.createPage({
+          path: `products/${node.handle}`,
+          component: path.resolve('./src/templates/product.tsx'),
+          context: {
+            productId: node.id,
+          },
+        });
+      });
+
+      result.data.allPrismicCollection.edges.forEach(({ node }) => {
+        actions.createPage({
+          path: `collections/${node.uid}`,
+          component: path.resolve('./src/templates/collection.tsx'),
+          context: {
+            collectionId: node.uid,
+          },
+        });
+      });
+      resolve();
+    });
+  });
+}

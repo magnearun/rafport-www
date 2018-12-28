@@ -1,0 +1,28 @@
+@import '~styles/config';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__form {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  &__input {
+    // border-color: transparent;
+    // border-bottom: 1px solid #333;
+    border-radius: 0;
+
+  }
+
+  &__heading {
+    @include heading(25, 32);
+
+    margin-bottom: $gutter * 1.25;
+
+    font-weight: 300;
+
+  }
+}

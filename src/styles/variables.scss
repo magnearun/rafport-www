@@ -14,20 +14,23 @@ $page-width: 1290px;
 $page-limit: $page-width + ($container-gutter-desktop * 2);
 
 // Fonts
-$font-family: 'Karla', sans-serif;
+$font-family: 'Roboto', sans-serif;
 $font-size: 16px;
 $font-size-min: 13px;
 $line-height: 1.5;
 
 // Colors
 $color-font: #333;
+$color-font-gray: #9ea0a6;
 $color-background: #fff;
+$color-background-gray: #f2f2f2;
 $color-light: #777;
 $color-dark: #111;
 $color-pink: #aa0078;
 $color-green: #9dc94a;
 $color-primary: $color-green;
 $color-placeholder: #ddd;
+$color-subheading: #9ea0a6;
 
 // Timings
 $transition-enter: 200ms;

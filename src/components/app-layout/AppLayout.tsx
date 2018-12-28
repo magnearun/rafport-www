@@ -6,7 +6,10 @@ import { get } from 'lodash';
 import Header from 'components/header/Header';
 import Devtools from 'components/devtools/Devtools';
 import s from './AppLayout.scss';
-import { StoreProvider } from 'contexts/StoreContext';;
+import { StoreProvider } from 'contexts/StoreContext';
+import { UIProvider } from 'contexts/UIContext';
+import Cart from 'components/cart/Cart';
+import Footer from 'components/footer/Footer';
 
 interface IProps {
   children: React.ReactNode;
@@ -36,14 +39,19 @@ export default class AppLayout extends React.PureComponent<IProps> {
           <html lang="en" />
         </Helmet>
 
+        <UIProvider>
+          <StoreProvider>
+            {this.options.header && <Header title={title} />}
 
-        <StoreProvider>
-          {this.options.header && <Header title={title} />}
+            <div className={s.layout}>
+              {this.props.children}
 
-          <div className={s.layout}>
-            {this.props.children}
-          </div>
-        </StoreProvider>
+              <Footer />
+            </div>
+
+            <Cart/>
+          </StoreProvider>
+        </UIProvider>
 
         <Devtools />
       </React.Fragment>

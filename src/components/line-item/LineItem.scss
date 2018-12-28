@@ -1,0 +1,53 @@
+@import '~styles/config';
+
+.lineItem {
+  display: flex;
+  flex-flow: row nowrap;
+
+  padding-right: 30px;
+
+  &__image {
+    flex: 1 0 50%;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1 0 50%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+
+    font-weight: 600;
+  }
+
+  &__subline {
+    font-size: 1rem;
+
+    color: $color-font-gray;
+    font-weight: 400;
+  }
+
+  &__price {
+    font-size: 1rem;
+    color: $color-font-gray;
+    font-weight: 400;
+  }
+
+  &__row {
+    display: flex;
+    flex-flow: row nowrap;
+
+    justify-content: space-between;
+  }
+
+  &__delete {
+    font-size: 20px;
+
+    cursor: pointer;
+  }
+}

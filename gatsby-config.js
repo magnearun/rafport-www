@@ -22,6 +22,14 @@ module.exports = {
     },
 
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: path.join(__dirname, `src`, `pages`),
+      },
+    },
+
+    {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: 'rafport-www.cdn',
@@ -74,5 +82,32 @@ module.exports = {
         component: require.resolve('./src/components/app-layout/AppLayout.tsx'),
       },
     },
+
+    {
+      resolve: 'gatsby-plugin-antd',
+      options: {
+        style: true,
+      }
+    },
+
+    {
+        resolve: "gatsby-plugin-less",
+        options: {
+          javascriptEnabled: true,
+          modifyVars: {
+            "primary-color": "#9dc94a",
+            "heading-color": "#333",
+            "link-color": "#333",
+            "font-size-base": '14px',
+            "text-color": '#333',
+            "btn-border-radius-base": "0px",
+            "btn-padding-base": "0 30px",
+            "input-height-lg": "45px",
+            "btn-height-lg": "45px",
+            "btn-default-bg": "#333",
+            "btn-default-color": "#fff",
+          },
+        },
+      },
   ],
 }

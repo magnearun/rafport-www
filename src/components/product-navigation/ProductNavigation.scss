@@ -1,0 +1,13 @@
+@import '~styles/config';
+
+.nav {
+  &__panel {
+    padding: 30px;
+  }
+
+  &__container {
+    @include container;
+  }
+}
+
+

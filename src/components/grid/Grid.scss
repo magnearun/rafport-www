@@ -1,0 +1,28 @@
+@import '~styles/config';
+
+.grid {
+  @include segment($padding-top: 0);
+
+  &__container {
+    @include container;
+  }
+
+  &__row {
+    @include grid-row;
+
+  }
+
+  &__item {
+    @include grid-col;
+
+    margin-top: 20px;
+
+    @media (min-width: $min-mobile) {
+      @include grid-col(6);
+    }
+
+    @media (min-width: $min-tablet) {
+      @include grid-col(4);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@import '~styles/config';
+
+.text {
+
+  @include container;
+  @include segment($padding-top: 0);
+
+  display: flex;
+  flex-flow: row wrap;
+
+  &__content {
+    @include responsive-font($font-size-min, 20);
+
+    flex: 0 0 50%;
+
+    padding-left: $gutter;
+
+    letter-spacing: 0.025em;
+    line-height: 1.55556;
+    font-weight: 200;
+
+    &.right {
+      margin-left: 50%;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}

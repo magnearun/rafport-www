@@ -23,7 +23,6 @@ $btn-border-width: 2px;
   cursor: pointer;
 
   border: $btn-border-width solid transparent;
-  border-radius: $btn-height / 2;
 
   background: $color-primary;
 
@@ -41,6 +40,10 @@ $btn-border-width: 2px;
 
   &:hover {
     background-color: darken($color-primary, 10%);
+  }
+
+  &.rounded {
+    border-radius: $btn-height / 2;
   }
 
   &.disabled {

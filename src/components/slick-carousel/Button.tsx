@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import PrevIconSvg from 'assets/svg/left-chevron.svg';
-import NextIconSvg from 'assets/svg/right-chevron.svg';
+import { Icon } from 'antd';
 
 import s from './Button.scss';
 
@@ -17,10 +16,10 @@ export default class Button extends Component {
     const { next } = this.props;
 
     if (next) {
-      return <NextIconSvg />;
+      return <Icon type="right" />;
     }
 
-    return <PrevIconSvg />;
+    return <Icon type="left" />;
 
   }
 

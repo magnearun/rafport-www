@@ -1,13 +1,15 @@
 import React from 'react';
-import Img from "gatsby-image"
+import Img from 'gatsby-image'
+import { Link } from 'gatsby'
 
 import s from './Product.scss';
 import Button from 'components/button/Button';
 
 interface IProductProps {
+  id: string;
   title: string;
   image: any;
-  // description: string;
+  handle: string;
   onAddToCart: (variantId: string) => void;
   variants: any;
 }
@@ -15,16 +17,31 @@ interface IProductProps {
 export default class Product extends React.PureComponent<IProductProps> {
 
   public render() {
-    const { id, title, image, variants, onAddToCart } = this.props;
+    const { id, handle, title, image, variants, onAddToCart } = this.props;
 
     return (
-      <div className={s.product}>
-        <h2>{title}</h2>
+      <Link to={`/products/${handle}`} className={s.product}>
         {/* <p>{description}</p> */}
         {/* <img src={image} /> */}
-        <Img resolutions={image} />
-        <Button onClick={() => onAddToCart(variants[0].id)}>Add to cart</Button>
-      </div>
+        {image && (
+          <img src={image} className={s.product__image} />
+          // <Img fluid={image} />
+        )}
+
+        <div className={s.product__footer}>
+          <Link
+            to={`/products/${handle}`}
+            className={s.product__link}
+            state={{
+              id,
+            }}
+          >
+            {title}
+          </Link>
+
+        </div>
+        {/* <Button onClick={() => onAddToCart(variants[0].id)}>Add to cart</Button> */}
+      </Link>
     );
   }
 }

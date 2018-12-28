@@ -16,22 +16,22 @@
 }
 
 :root {
-  --scale-element: $scale;
-  --scale-font: $scale;
+  --scale-element: #{$scale};
+  --scale-font: #{$scale};
 
   @media (max-height: $scale-height-lg) {
-    --scale-element: $scale-element-lg;
-    --scale-font: $scale-font-lg;
+    --scale-element: #{$scale-element-lg};
+    --scale-font: #{$scale-font-lg};
   }
 
   @media (max-height: $scale-height-md) {
-    --scale-element: $scale-element-md;
-    --scale-font: $scale-font-md;
+    --scale-element: #{$scale-element-md};
+    --scale-font: #{$scale-font-md};
   }
 
   @media (max-height: $scale-height-sm) {
-    --scale-element: $scale-element-sm;
-    --scale-font: $scale-font-sm;
+    --scale-element: #{$scale-element-sm};
+    --scale-font: #{$scale-font-sm};
   }
 }
 
@@ -54,6 +54,24 @@ html {
   box-sizing: border-box;
 }
 
+.no-scroll {
+  overflow-y: hidden;
+}
+
+.no-scroll body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scrollbar-measure {
+	width: 100px;
+	height: 100px;
+	overflow: scroll;
+	position: absolute;
+	top: -9999px;
+}
+
+
 // inherited from <html>
 *,
 *::before,
@@ -74,9 +92,6 @@ body {
 
   // iOS on orientation change
   text-size-adjust: 100%;
-
-  background-color: #f8f8f8;
-
 }
 
 img {

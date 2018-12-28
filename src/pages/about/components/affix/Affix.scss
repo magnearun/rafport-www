@@ -1,0 +1,57 @@
+@import '~styles/config';
+
+.affix {
+
+  @include container;
+
+  display: flex;
+  flex-flow: row wrap;
+
+  &__row {
+    @include grid-row;
+  }
+
+  &__text {
+    @include will-animate;
+    @include responsive-font($font-size-min, 20);
+
+    // padding-right: $gutter * 2;
+    display: block;
+
+    letter-spacing: 0.025em;
+    line-height: 1.55556;
+    font-weight: 200;
+
+    &.left {
+      // padding-right: 0;
+      // padding-left: $gutter * 2;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    @media (min-width: $min-mobile) {
+      @include grid-col(6);
+    }
+  }
+
+  &__image {
+    @include will-animate;
+    width: 100%;
+
+
+    // padding-left: $gutter;
+
+    &.left {
+      order: -1;
+
+      // padding-left: 0;
+      // padding-right: $gutter;
+    }
+
+    @media (min-width: $min-mobile) {
+      @include grid-col(6);
+    }
+  }
+}
