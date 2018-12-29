@@ -21,7 +21,7 @@ interface IProps {
   slices: Array<ISlice>;
 }
 
-export default ({ slices }: IProps) => {
+export default ({ slices = [] }: IProps) => {
 
   return (
     <div>
