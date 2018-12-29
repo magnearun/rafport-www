@@ -1,5 +1,5 @@
 import React, { Children, cloneElement } from 'react';
-import Logo from 'assets/svg/rafport.png';
+import Logo from 'assets/images/rafport-icon.png';
 
 import s from './MailingList.scss';
 
@@ -69,6 +69,7 @@ class RegistrationForm extends React.Component<IState> {
     return (
       <Segment>
         <div className={s.form}>
+        <img src={Logo} className={s.form__image} />
         <h2 className={s.form__heading}>Póstlisti Rafports</h2>
           <Form onSubmit={this.handleSubmit} className={s.form__form} netlify>
             <Form.Item

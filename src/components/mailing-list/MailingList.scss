@@ -25,4 +25,9 @@
     font-weight: 300;
 
   }
+
+  &__image {
+    width: 70px;
+    margin-bottom: $gutter;
+  }
 }

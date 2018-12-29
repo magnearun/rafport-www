@@ -5,10 +5,11 @@
   flex-flow: row nowrap;
 
   &__icon {
+    align-self: center;
+
     font-size: 20px;
 
     cursor: pointer;
-
   }
 
   &__value {

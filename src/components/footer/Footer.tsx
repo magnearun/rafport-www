@@ -1,5 +1,5 @@
 import React, { Children, cloneElement } from 'react';
-import s from './footer.scss';
+import s from './Footer.scss';
 import Segment from 'components/segment/Segment';
 
 interface IProps {
