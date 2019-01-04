@@ -6922,7 +6922,7 @@ is-png@^1.0.0:
 
 is-posix-bracket@^0.1.0:
   version "0.1.1"
-  resolved "https://registry.yarnpkg.com/is-posix-bracket/-/is-posix-bracket-0.1.1.tgz#1c1c1c4dc79774368e92f016e6fbc0a88f5cd6e6bc4"
+  resolved "https://registry.yarnpkg.com/is-posix-bracket/-/is-posix-bracket-0.1.1.tgz#3334dc79774368e92f016e6fbc0a88f5cd6e6bc4"
 
 is-primitive@^2.0.0:
   version "2.0.0"
@@ -10402,9 +10402,9 @@ react-slick@^0.23.2, react-slick@~0.23.2:
     resize-observer-polyfill "^1.5.0"
 
 react-spring@^7.2.5:
-  version "7.2.5"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-7.2.5.tgz#3e68b575caee1af4465b54566ee97c33c1eceac8"
-  integrity sha512-J14PEJmkTOKLqN03+y7nM9szUrnQhZnapyQu4Tr8Ncq5wpKUB4ASZ4pRU/amNVKf0WVPkYeD62FqZFIrDjELJg==
+  version "7.2.7"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-7.2.7.tgz#1e64ddfbc9b835a3d8795bb0e5c45c3a400ab9e7"
+  integrity sha512-UFPkQzPQMOf9E9GFprcGVfa+1EdnffQV6tvFGY+kck32orqgqKrfP54y8da3qP3T6hLnLkU77seVZOD7GYPNEg==
   dependencies:
     "@babel/runtime" "^7.0.0"
 
