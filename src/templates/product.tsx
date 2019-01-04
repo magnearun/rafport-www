@@ -16,6 +16,7 @@ function Product(props: any) {
 
   console.log('product', props);
   const product = _get(props, 'data.shopifyProduct', {});
+  const images = _get(product, 'images', []);
 
 
   return (
@@ -25,7 +26,7 @@ function Product(props: any) {
           title={_get(product, 'title', '')}
           description={_get(product, 'description', '')}
           variants={_get(product, 'variants', [])}
-          images={_get(product, 'images', [])}
+          image={images && _get(images[0], 'localFile.childImageSharp.fluid')}
           onAddToCart={(variantId: string) => addToCart(variantId)}
         />
       </Segment>
@@ -48,7 +49,7 @@ export const query = graphql`
       images {
         localFile {
           childImageSharp {
-            fluid(maxWidth: 910) {
+            fluid(quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }

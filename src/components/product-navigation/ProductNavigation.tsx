@@ -1,6 +1,6 @@
 import React, { Children, cloneElement, useState } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import { Drawer } from 'antd'
+import { Drawer, Divider } from 'antd'
 
 import _get from 'lodash/get';
 
@@ -60,21 +60,24 @@ export default function ProductNavigation(initialIsOpen: boolean) {
             <Drawer
               placement="top"
               width="100vh"
-              height="30vh"
+              height="auto"
               onClose={() => toggle(!isOpen)}
               visible={isOpen}
             >
               <nav className={s.nav__panel}>
                 <div className={s.nav__container}>
-                  <div className={s.nav__list}>
+                  <h2 className={s.nav__heading}>Vörur</h2>
+
+                  <Divider />
+                  <div className={s.nav__row}>
                     {groups.map(({ collection_group: { document: doc }}: any) => {
                       return doc.map(({ data: { name, collections  }}: any) => (
-                        <div>
-                          <div>{name.text}</div>
-                          <ul>
+                        <div className={s.nav__col}>
+                          <div className={s.nav__name}>{name.text}</div>
+                          <ul className={s.nav__list}>
                             {collections.map(({ collection: { document: doc }}) => {
                               return doc.map(({ uid, data: { name  }}: any) => (
-                                <li>
+                                <li className={s.nav__item}>
                                   <Link to={`/collections/${uid}`} onClick={() => toggle(!isOpen)}>
                                     {name.text}
                                   </Link>

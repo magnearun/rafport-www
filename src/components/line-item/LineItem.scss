@@ -4,38 +4,32 @@
   display: flex;
   flex-flow: row nowrap;
 
-  padding-right: 30px;
-
   &__image {
-    flex: 1 0 50%;
+    flex: 1 0 60%;
   }
 
   &__details {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    flex: 1 0 50%;
+    flex: 1 0 40%;
     padding-top: 20px;
     padding-bottom: 20px;
   }
 
   &__title {
-    font-size: 1.2rem;
-
-    font-weight: 600;
+    @include responsive-font(18, 18);
   }
 
   &__subline {
-    font-size: 1rem;
+    @include responsive-font(12, 12);
 
     color: $color-font-gray;
-    font-weight: 400;
   }
 
   &__price {
-    font-size: 1rem;
+    @include responsive-font(14, 14);
     color: $color-font-gray;
-    font-weight: 400;
   }
 
   &__row {
@@ -48,6 +42,7 @@
   &__delete {
     font-size: 20px;
 
+    align-self: center;
     cursor: pointer;
   }
 }

@@ -46,31 +46,13 @@ html {
   -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
   // always show the vertical scrollbar so that content doesn't jump
-  overflow-y: scroll;
+  // overflow-y: scroll;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   box-sizing: border-box;
 }
-
-.no-scroll {
-  overflow-y: hidden;
-}
-
-.no-scroll body {
-  height: 100vh;
-  overflow: hidden;
-}
-
-.scrollbar-measure {
-	width: 100px;
-	height: 100px;
-	overflow: scroll;
-	position: absolute;
-	top: -9999px;
-}
-
 
 // inherited from <html>
 *,

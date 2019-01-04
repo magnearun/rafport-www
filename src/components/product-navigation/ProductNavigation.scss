@@ -8,6 +8,53 @@
   &__container {
     @include container;
   }
+
+  &__row {
+    @include segment($padding-top: $gutter * 3, $padding-bottom: $gutter * 3);
+    @include grid-row;
+  }
+
+  &__col {
+    @include grid-col(3);
+
+    margin-bottom: $gutter * 2;
+  }
+
+  &__heading {
+    @include heading($max: 32);
+
+    margin-bottom: (32/52) * 1em;
+  }
+
+  &__name {
+    @include heading($max: 18);
+
+    display: inline-block;
+    position: relative;
+    margin-bottom: 1em;
+    padding-left: 10px;
+
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: $color-primary;
+    }
+  }
+
+  &__list {
+    @include reset-list;
+  }
+
+  &__item {
+    @include responsive-font(16, 16);
+
+    font-weight: 300;
+  }
 }
 
 

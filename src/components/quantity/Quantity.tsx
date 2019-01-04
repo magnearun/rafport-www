@@ -1,8 +1,5 @@
 import React from 'react';
 
-import Plus from 'assets/svg/plus.svg';
-import Minus from 'assets/svg/minus.svg';
-
 import s from './Quantity.scss';
 import { Icon } from 'antd';
 import { withUIContext } from 'contexts/UIContext';

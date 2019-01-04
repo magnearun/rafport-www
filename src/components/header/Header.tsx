@@ -2,20 +2,18 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import Logo from 'assets/images/download.png';
-import BurgerMenu from 'assets/svg/shopping-cart.svg';
-import Text from 'assets/svg/rafporttext.svg';
 import { Badge, Icon } from 'antd'
 
 import Navigation from 'components/navigation/Navigation';
-import Button from 'components/button/Button';
 
-import StoreContext, { withStoreContext, IStoreContext } from 'contexts/StoreContext';
+import { withStoreContext, IStoreContext } from 'contexts/StoreContext';
 
 import useProductNavigation from 'components/product-navigation/ProductNavigation';
 import s from './Header.scss';
 
 interface IProps {
   storeContext: IStoreContext;
+  white: boolean;
 }
 
 function Header(props: IProps) {
@@ -29,7 +27,7 @@ function Header(props: IProps) {
 
 
   return (
-    <header className={s.header}>
+    <header className={s(s.header, { white: props.white })}>
       <div className={s.header__container}>
         <div className={s.header__content}>
           <div className={s.header__row}>
@@ -45,9 +43,9 @@ function Header(props: IProps) {
               <Link to="/about">Um okkur</Link>
             </Navigation>
             <div className={s.header__cart}>
-              <Badge count={props.storeContext.checkout.lineItems.length} style={{ backgroundColor: '#9dc94a' }}>
                 <Icon type="shopping-cart" className={s.header__cartSvg} onClick={openCart} />
-              </Badge>
+              {/* <Badge count={props.storeContext.checkout.lineItems.length} style={{ backgroundColor: '#fff', color: '#414042' }}>
+              </Badge> */}
             </div>
           </div>
         </div>

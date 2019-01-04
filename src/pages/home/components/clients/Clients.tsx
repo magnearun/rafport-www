@@ -1,7 +1,6 @@
 import React, { Children, cloneElement } from 'react';
 
 import s from './Clients.scss';
-import Segment from 'components/segment/Segment';
 
 interface IProps {
   children: React.ReactNode;

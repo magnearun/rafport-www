@@ -42,17 +42,19 @@ export default function Text({ content, position = 'RIGHT' }: IProps) {
 
   return (
     <div className={s.text}>
-      {/* <Waypoint
-        ref={waypointRef}
-        topOffset="99.99%"
-        onPositionChange={handlePositionChange}
-        scrollableAncestor={window}
-      /> */}
-      <div
-        ref={contentRef}
-        className={s(s.text__content, { right: position === 'RIGHT' })}
-        dangerouslySetInnerHTML={{__html: content }}
-      />
+      <div className={s.text__row}>
+        {/* <Waypoint
+          ref={waypointRef}
+          topOffset="99.99%"
+          onPositionChange={handlePositionChange}
+          scrollableAncestor={window}
+        /> */}
+        <div
+          ref={contentRef}
+          className={s(s.text__content, { right: position === 'RIGHT' })}
+          dangerouslySetInnerHTML={{__html: content }}
+        />
+      </div>
 
     </div>
   );

@@ -12,7 +12,7 @@
 
   &__input {
     // border-color: transparent;
-    // border-bottom: 1px solid #333;
+    // border-bottom: 1px solid #1c1c1c;
     border-radius: 0;
 
   }
@@ -21,8 +21,6 @@
     @include heading(25, 32);
 
     margin-bottom: $gutter * 1.25;
-
-    font-weight: 300;
 
   }
 

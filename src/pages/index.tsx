@@ -3,7 +3,9 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import _get from 'lodash/get';
 import Hero from './home/components/hero/Hero';
+import Parallax from './home/components/parallax/Parallax';
 import MailingList from 'components/mailing-list/MailingList';
+import Image from 'components/image/Image';
 
 export default class Home extends React.PureComponent<any> {
 
@@ -13,10 +15,9 @@ export default class Home extends React.PureComponent<any> {
   }
 
   render() {
-    console.log(this.props)
     const { data } = this.props;
     const home = _get(data, 'prismicHome.data', {});
-    const collections = _get(data, 'allShopifyCollection.edges', []);
+    console.log(_get(home, 'image.localFile.childImageSharp.fluid'))
 
     return (
       <React.Fragment>
@@ -25,7 +26,9 @@ export default class Home extends React.PureComponent<any> {
         <Hero
           title={_get(home, 'title.text', '')}
           description={_get(home, 'description.text', '')}
-          image={_get(home, 'image.localFile.childImageSharp.fixed', [])}
+          image={<Image
+            fluid={_get(home, 'image.localFile.childImageSharp.fluid')}
+          />}
         />
 
         {/* <SlickCarousel>
@@ -42,7 +45,7 @@ export default class Home extends React.PureComponent<any> {
             })}
         </SlickCarousel> */}
 
-        <MailingList />
+        {/* <MailingList /> */}
 
         {/* <Clients>
           <ABB />
@@ -58,25 +61,6 @@ export default class Home extends React.PureComponent<any> {
 
 export const query = graphql`
   query AllCollectionsQuery {
-    allShopifyCollection {
-      edges {
-        node {
-          id
-          descriptionHtml
-          handle
-          image {
-            localFile {
-              childImageSharp {
-                resolutions(width: 500, height: 500) {
-                  ...GatsbyImageSharpResolutions_withWebp
-                }
-              }
-            }
-          }
-          title
-        }
-      }
-    }
     prismicHome {
       data {
         title {
@@ -88,8 +72,8 @@ export const query = graphql`
         image {
           localFile {
             childImageSharp {
-              fixed(width: 1840, height: 1040, quality: 100) {
-                ...GatsbyImageSharpFixed
+              fluid(quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }

@@ -1,0 +1,33 @@
+@import '~styles/config';
+
+.heading {
+  display: inline-block;
+  position: relative;
+
+  margin-bottom: 1em;
+
+  &__text {
+    @include heading;
+
+    will-change: transform, opacity;
+
+    &.white {
+      color: #fff;
+    }
+  }
+
+  &__border {
+    position: absolute;
+    top: 130%;
+    left: 0;
+
+    height: 2px;
+    width: 40%;
+    background-color: $color-primary;
+    will-change: opacity;
+  }
+
+  &White {
+    color: #fff;
+  }
+}

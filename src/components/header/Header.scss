@@ -3,9 +3,15 @@
 .header {
   display: block;
 
-  z-index: $z-index-10;
+  background-color: #121217;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.95);
 
   width: 100%;
+
+  &.white {
+    background-color: #fff;
+    border-bottom: 1px solid #f2f2f2;
+  }
 
   &__container {
     @include container;
@@ -38,7 +44,16 @@
     @include reset-anchor;
 
     z-index: $z-index-10;
-    width: 95px;
+    margin-right: 10px;
+    width: 110px;
+  }
+
+  &__logoText {
+    @include reset-anchor;
+
+    z-index: $z-index-10;
+    width: 75px;
+    mix-blend-mode: exclusion;
   }
 
   &__navigation {
@@ -50,15 +65,17 @@
     position: relative;
     z-index: $z-index-10;
     margin-left: 30px;
+    mix-blend-mode: exclusion;
 
     &Svg {
-      font-size: 24px;
-
       padding-top: 5px;
       padding-right: 5px;
 
+      font-size: 24px;
+      color: #fff;
       cursor: pointer;
-      fill: #333;
+      fill: #fff;
+      stroke-width: 3;
     }
 
     &Badge {
@@ -76,9 +93,9 @@
       width: 17px;
       height: 17px;
       font-weight: 600;
-      color: #fff;
+      color: #414042;
       border-radius: 50%;
-      background: $color-primary;
+      background: #fff;
     }
   }
 }

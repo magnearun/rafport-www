@@ -20,11 +20,17 @@
 
     letter-spacing: 0.025em;
     line-height: 1.55556;
-    font-weight: 200;
+    font-weight: 300;
 
     &.left {
       // padding-right: 0;
       // padding-left: $gutter * 2;
+      @media (min-width: $min-mobile) {
+        @include grid-col(5);
+        @include grid-offset-left(1);
+        margin-right: 0;
+      }
+
     }
 
     p {
@@ -32,7 +38,8 @@
     }
 
     @media (min-width: $min-mobile) {
-      @include grid-col(6);
+      @include grid-col(5);
+      @include grid-offset-right(1);
     }
   }
 

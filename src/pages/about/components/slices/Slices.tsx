@@ -10,6 +10,8 @@ import Text from '../text/Text';
 import s from './Slices.scss';
 import Segment from 'components/segment/Segment';
 import Grid from 'components/grid/Grid';
+import Employees from 'components/employees/Employees';
+import EmployeesItem from 'components/employees/Item';
 
 interface ISlice {
   slice_type: string;
@@ -30,7 +32,7 @@ export default ({ slices = [] }: IProps) => {
           case 'affix':
             return(
               <Affix
-                image={(<Img fluid={_get(primary, 'affix_image.localFile.childImageSharp.fluid', {})} />)}
+                // image={(<Img fluid={_get(primary, 'affix_image.localFile.childImageSharp.fluid', {})} />)}
                 text={_get(primary, 'text.html', {})}
                 imagePosition={_get(primary, 'image_position', '')}
               />
@@ -53,27 +55,13 @@ export default ({ slices = [] }: IProps) => {
             break;
           case 'employees':
             return(
-                <Grid>
+                <Employees>
                   {items.map((item: any) => {
                       return (
-                        <Card
-                          hoverable
-                          cover={<Img
-                            fluid={_get(item, 'avatar.localFile.childImageSharp.fluid', '')}
-                          />}
-                        >
-                          <Card.Meta
-                            title={_get(item, 'name.text', '')}
-                            description={<div>
-                              <p>{_get(item, 'job_title.text', '')}</p>
-                              <p>{`Sími: ${_get(item, 'phone.text', '')}`}</p>
-                              <p>{`Netfang: ${_get(item, 'email.text', '')}`}</p>
-                            </div>}
-                          />
-                        </Card>
+                        <EmployeesItem item={item} />
                       );
                     })}
-                </Grid>
+                </Employees>
             );
             break;
           case 'image_slider':
@@ -82,7 +70,7 @@ export default ({ slices = [] }: IProps) => {
                 {items.map((item: any) => {
                     return (
                       <Img
-                        fluid={_get(item, 'slider_image.localFile.childImageSharp.fluid', '')}
+                        fluid={_get(item, 'slider_image.localFile.childImageSharp.fluid')}
                         imgStyle={{
                           maxWidth: '500px',
                           maxHeight: '660px',

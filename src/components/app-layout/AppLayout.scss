@@ -6,6 +6,7 @@
 
 .layout {
   display: block;
+  background-color: #fff;
 
   &__container {
     @include container;

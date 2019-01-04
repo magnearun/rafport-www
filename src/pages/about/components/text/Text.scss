@@ -5,26 +5,42 @@
   @include container;
   @include segment($padding-top: 0);
 
-  display: flex;
-  flex-flow: row wrap;
+  &__row {
+    @include grid-row;
+  }
 
   &__content {
-    @include responsive-font($font-size-min, 20);
+    @include grid-col(6);
+    @include copy;
 
     flex: 0 0 50%;
 
     padding-left: $gutter;
 
-    letter-spacing: 0.025em;
-    line-height: 1.55556;
-    font-weight: 200;
-
     &.right {
-      margin-left: 50%;
+      @include grid-offset-left(6);
     }
 
     p {
       margin: 0;
+    }
+
+    h2 {
+      @include heading;
+
+      display: inline-block;
+      position: relative;
+      margin-bottom: 1em;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 130%;
+        left: 0;
+        width: 40%;
+        height: 2px;
+        background: $color-primary;
+      }
     }
   }
 }

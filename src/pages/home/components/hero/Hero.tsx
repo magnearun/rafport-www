@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import { Power4, TimelineLite, TweenLite } from 'gsap';
 
-import Segment from 'components/segment/Segment';
-import hero from 'assets/images/hero.jpg' // Tell Webpack this JS file uses this image
-import Parallax from 'components/parallax/Parallax';
+import Heading from 'components/heading/Heading';
+// import Img from 'gatsby-image'
 import s from './Hero.scss';
+import { Button } from 'antd';
+import { Carousel } from 'antd';
 
 interface IProps {
   title: string;
@@ -17,52 +17,29 @@ export default class Hero extends React.PureComponent<IProps> {
   heading: any = React.createRef();
   description: any = React.createRef();
 
-  componentDidMount() {
-    const t = new TimelineLite({ onComplete: () => {
-      TweenLite.set(heading, { clearProps: 'opacity' });
-    }});
-
-    const heading = this.heading.current;
-    const description = this.description.current;
-    const targets = [
-      heading,
-      description,
-    ];
-
-    t.staggerFromTo(
-      targets,
-      1,
-      { autoAlpha: 0, y: 20 },
-      { autoAlpha: 1, y: 0, ease: Power4.easeInOut },
-      1 / 2,
-    );
-
-
-    // window.addEventListener('scroll', this.handleScroll);
-
-  }
-
-  // componentWillUnmount() {
-  //   window.removeEventListener('scroll', this.handleScroll);
-  // }
-
-  // handleScroll = () => {
-  //   this.heading.current.style.setProperty('--opacity', 1 - window.scrollY / 150);
-  // }
-
   public render() {
     const { title, description, image } = this.props;
 
     return (
       <div className={s.hero}>
-        <Parallax image={image}>
-          <div className={s.hero__overlay}>
-            <h1 className={s.hero__heading} ref={this.heading}>{title}</h1>
+          <Carousel>
+              {image}
+          </Carousel>
+
+      <div className={s.hero__overlay}>
+        <div className={s.hero__row}>
+
+          <div className={s.hero__content}>
+            <Heading border={false}>{title}</Heading>
             <p className={s.hero__description} ref={this.description}>
               {description}
             </p>
+            <div className={s.hero__buttons}>
+              <Button type="primary" size="large">Lorem ipsum</Button>
+            </div>
           </div>
-        </Parallax>
+        </div>
+      </div>
       </div>
     );
   }

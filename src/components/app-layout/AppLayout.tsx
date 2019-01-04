@@ -41,7 +41,7 @@ export default class AppLayout extends React.PureComponent<IProps> {
 
         <UIProvider>
           <StoreProvider>
-            {this.options.header && <Header title={title} />}
+            {this.options.header && <Header title={title} white />}
 
             <div className={s.layout}>
               {this.props.children}

@@ -6,7 +6,7 @@ import s from './MailingList.scss';
 import {
   Form, Input, Button,
 } from 'antd';
-import Segment from 'components/segment/Segment';
+import Segment, { EColor } from 'components/segment/Segment';
 
 interface IState {
   loading: boolean;
@@ -67,7 +67,7 @@ class RegistrationForm extends React.Component<IState> {
     const { getFieldDecorator } = this.props.form;
 
     return (
-      <Segment>
+      <Segment color={EColor.GRAY}>
         <div className={s.form}>
         <img src={Logo} className={s.form__image} />
         <h2 className={s.form__heading}>Póstlisti Rafports</h2>

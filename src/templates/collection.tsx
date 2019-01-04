@@ -10,6 +10,7 @@ import Grid from 'components/grid/Grid';
 import Product from 'components/product/Product';
 
 import Hero from '../pages/products/components/hero/Hero';
+import Image from 'components/image/Image';
 
 function Collection(props: any) {
 
@@ -25,7 +26,7 @@ function Collection(props: any) {
     <React.Fragment>
 
      <Hero
-        image={_get(collection, 'collection_image.localFile.childImageSharp.fluid', {})}
+        image={<Image fluid={_get(collection, 'collection_image.localFile.childImageSharp.fluid')} />}
         title={_get(collection, 'name.text', '')}
       />
 

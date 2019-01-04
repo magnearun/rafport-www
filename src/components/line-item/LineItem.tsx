@@ -26,9 +26,7 @@ export default function LineItem({ title, quantity, variant, onUpdate, onRemove 
         <div className={s.lineItem__price}>{variant.price}</div>
 
         <div className={s.lineItem__row}>
-          <div className={s.lineItem__quantity}>
-            <Quantity value={quantity} onUpdate={onUpdate} />
-          </div>
+          <Quantity value={quantity} onUpdate={onUpdate} />
           <Icon type="delete" className={s.lineItem__delete} onClick={onRemove} />
         </div>
       </div>

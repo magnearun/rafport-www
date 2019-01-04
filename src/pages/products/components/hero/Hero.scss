@@ -1,7 +1,8 @@
 @import '~styles/config';
 
 .hero {
-  @include segment($padding-top: 0);
+
+  margin-bottom: $gutter * 3;
 
   &__overlay {
     @include container;
@@ -24,8 +25,9 @@
   }
 
   &__heading {
-    @include responsive-font(22, 55);
+    @include heading;
+    // @include responsive-font(22, 55);
 
-    color: #333;
+    color: #1c1c1c;
   }
 }

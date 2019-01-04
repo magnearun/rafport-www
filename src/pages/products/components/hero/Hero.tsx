@@ -1,9 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import { Power4, TimelineLite, TweenLite } from 'gsap';
+import React from 'react';
 
-import Segment from 'components/segment/Segment';
 import Parallax from 'components/parallax/Parallax';
 import s from './Hero.scss';
+import Heading from 'components/heading/Heading';
 
 export default function Hero({ image, title }: any) {
 
@@ -16,7 +15,11 @@ export default function Hero({ image, title }: any) {
         small
       >
       <div className={s.hero__overlay}>
-        <h1 className={s.hero__heading} ref={heading}>{title}</h1>
+        <div className={s.hero__heading} ref={heading}>
+          <Heading>
+            {title}
+          </Heading>
+        </div>
       </div>
       </Parallax>
     </div>

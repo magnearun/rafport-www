@@ -5,12 +5,3 @@
  */
 
 // You can delete this file if you're not using it
-
-import React from 'react';
-import { ParallaxProvider } from 'react-scroll-parallax';
-
-export const wrapRootElement = ({ element }) => (
-  <ParallaxProvider>
-    {element}
-  </ParallaxProvider>
-);

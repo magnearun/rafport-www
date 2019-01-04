@@ -5,14 +5,14 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export default function Grid({ children }: IProps) {
+export default function Grid({ children, col = 3 }: IProps) {
 
   return (
     <div className={s.grid}>
       <div className={s.grid__container}>
         <div className={s.grid__row}>
           {Children.toArray(children).map((c: any) => (
-            <div className={s.grid__item}>
+            <div className={s(s.grid__item, { grid__item4: col === 4 })}>
               {cloneElement(c)}
             </div>
           ))}

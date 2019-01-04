@@ -7,6 +7,8 @@ import Img from 'gatsby-image'
 import Map from 'components/map/Map';
 import Slices from './about/components/slices/Slices';
 import Hero from '../pages/products/components/hero/Hero';
+import Heading from 'components/heading/Heading';
+import Image from 'components/image/Image';
 
 interface IProps {
   data: object;
@@ -24,7 +26,7 @@ export default function About({ data }: IProps) {
         <Helmet title="About" />
 
         <Hero
-          image={_get(about, 'image.localFile.childImageSharp.fluid', {})}
+          image={<Image fluid={_get(about, 'image.localFile.childImageSharp.fluid')} />}
           title={_get(about, 'title.text', '')}
           spaced
         />

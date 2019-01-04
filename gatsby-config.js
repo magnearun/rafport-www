@@ -91,23 +91,33 @@ module.exports = {
     },
 
     {
-        resolve: "gatsby-plugin-less",
-        options: {
-          javascriptEnabled: true,
-          modifyVars: {
-            "primary-color": "#9dc94a",
-            "heading-color": "#333",
-            "link-color": "#333",
-            "font-size-base": '14px',
-            "text-color": '#333',
-            "btn-border-radius-base": "0px",
-            "btn-padding-base": "0 30px",
-            "input-height-lg": "45px",
-            "btn-height-lg": "45px",
-            "btn-default-bg": "#333",
-            "btn-default-color": "#fff",
-          },
+      resolve: "gatsby-plugin-less",
+      options: {
+        javascriptEnabled: true,
+        modifyVars: {
+          "primary-color": "#9dc94a",
+          "heading-color": "#414042",
+          "link-color": "#414042",
+          "font-size-base": '14px',
+          "text-color": '#414042',
+          "btn-border-radius-base": "22.5px",
+          "btn-padding-base": "0 30px",
+          "input-height-lg": "45px",
+          "btn-height-lg": "45px",
+          "btn-default-bg": "#414042",
+          "btn-default-color": "#fff",
+          "font-family": "Fira+Sans",
         },
       },
+    },
+
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Fira+Sans:100,200,300,400,500,600,700,800,900']
+        }
+      }
+    }
   ],
 }

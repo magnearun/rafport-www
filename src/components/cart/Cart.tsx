@@ -1,13 +1,12 @@
-import React, { Children, useEffect } from 'react';
+import React from 'react';
 import { withStoreContext, IStoreContext } from 'contexts/StoreContext';
 import _get from 'lodash/get';
 
-import { Drawer } from 'antd'
+import { Drawer, Button } from 'antd'
 
 import LineItem from 'components/line-item/LineItem';
 
 import s from './Cart.scss';
-import Button from 'components/button/Button';
 
 interface IProps {
   children: React.ReactNode;
@@ -28,6 +27,9 @@ function Cart({ children, storeContext }: IProps) {
     onClose={() => storeContext.toggleCart()}
     bodyStyle={{
       height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      backgroundColor: '#f90',
     }}
     visible={storeContext.isCartOpen}>
       <div className={s.cart__panel}>
@@ -45,7 +47,7 @@ function Cart({ children, storeContext }: IProps) {
           ))}
         </div>
         <div className={s.cart__buttonWrapper}>
-          <Button className={s.cart__button} onClick={() => window.open(storeContext.checkout.webUrl)}>Ganga frá pöntun</Button>
+          <Button className={s.cart__button} size="large" block type="primary" onClick={() => window.open(storeContext.checkout.webUrl)}>Ganga frá pöntun</Button>
         </div>
       </div>
     </Drawer>
