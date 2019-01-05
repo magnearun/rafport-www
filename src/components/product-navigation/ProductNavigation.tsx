@@ -5,6 +5,7 @@ import { Drawer, Divider } from 'antd'
 import _get from 'lodash/get';
 
 import s from './ProductNavigation.scss';
+import { Trail } from 'react-spring';
 
 const query = graphql`
   query GroupsQuery {
@@ -53,7 +54,6 @@ export default function ProductNavigation(initialIsOpen: boolean) {
     (
       <StaticQuery query={query}>
         {(res) => {
-          console.log('ProductNavigation', res);
           const groups = _get(res, 'prismicHome.data.collection_groups', []);
 
           return (

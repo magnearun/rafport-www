@@ -9,7 +9,7 @@ const {
 } = Layout;
 const SubMenu = Menu.SubMenu;
 
-import Logo from 'assets/images/download.png';
+import LogoWhite from 'assets/images/rafport-white.png';
 import LogoIcon from 'assets/images/rafport-icon.png';
 
 import List from './List';
@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
             {this.state.collapsed ? (
               <img src={LogoIcon} />
             ) : (
-              <img src={Logo} />
+              <img src={LogoWhite} />
             )}
           </div>
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
@@ -67,8 +67,8 @@ class Dashboard extends React.Component {
           </Menu>
         </Sider>
         <Layout>
-          <Header className={s.dashboard__header}>
             {isLoggedIn() && (
+          <Header className={s.dashboard__header}>
               <Icon
                 className={s.dashboard__logout}
                 type={'logout'}
@@ -77,13 +77,10 @@ class Dashboard extends React.Component {
                   logout(() => navigate(`/app/login`))
                 }}
               />
-            )}
           </Header>
+            )}
 
           <Content style={{ margin: '60px 16px 0' }}>
-            {/* <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Reikningar</Breadcrumb.Item>
-            </Breadcrumb> */}
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
               {this.props.children}
             </div>

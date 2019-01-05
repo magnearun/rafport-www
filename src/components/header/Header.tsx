@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { navigate } from "@reach/router"
 
-import Logo from 'assets/images/download.png';
+import Logo from 'assets/images/rafport-black.png';
 import { Badge, Icon } from 'antd'
 
 import Navigation from 'components/navigation/Navigation';

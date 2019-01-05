@@ -28,9 +28,14 @@ export default class Heading extends React.PureComponent {
   handlePositionChange = ({ currentPosition }: any) => {
 
     if (this.waypointRef && currentPosition === 'above' && !this.isAnimationComplete) {
-      this.setState({
-        show: true,
-      })
+      console.log('SHOW.....');
+
+      setTimeout(() => {
+        this.setState({
+          show: true,
+        });
+      }, 300);
+
       this.isAnimationComplete = true;
     }
   }

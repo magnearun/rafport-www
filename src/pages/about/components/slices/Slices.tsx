@@ -71,10 +71,6 @@ export default ({ slices = [] }: IProps) => {
                     return (
                       <Img
                         fluid={_get(item, 'slider_image.localFile.childImageSharp.fluid')}
-                        imgStyle={{
-                          maxWidth: '500px',
-                          maxHeight: '660px',
-                        }}
                         className={s.image}
                       />
                     );
