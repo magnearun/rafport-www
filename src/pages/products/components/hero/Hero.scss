@@ -1,7 +1,7 @@
 @import '~styles/config';
 
 .hero {
-
+  position: relative;
   margin-bottom: $gutter * 3;
 
   &__overlay {

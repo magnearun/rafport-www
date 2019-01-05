@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Parallax from 'components/parallax/Parallax';
 import s from './Hero.scss';
 import Heading from 'components/heading/Heading';
 
@@ -10,10 +9,7 @@ export default function Hero({ image, title }: any) {
 
   return (
     <div className={s.hero}>
-      <Parallax
-        image={image}
-        small
-      >
+      {image}
       <div className={s.hero__overlay}>
         <div className={s.hero__heading} ref={heading}>
           <Heading>
@@ -21,7 +17,6 @@ export default function Hero({ image, title }: any) {
           </Heading>
         </div>
       </div>
-      </Parallax>
     </div>
   );
 }
