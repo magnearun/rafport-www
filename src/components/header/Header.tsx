@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { navigate } from "@reach/router"
 
 import Logo from 'assets/images/download.png';
 import { Badge, Icon } from 'antd'
@@ -46,6 +47,8 @@ function Header(props: IProps) {
                 <Icon type="shopping-cart" className={s.header__cartSvg} onClick={openCart} />
               {/* <Badge count={props.storeContext.checkout.lineItems.length} style={{ backgroundColor: '#fff', color: '#414042' }}>
               </Badge> */}
+              <Icon type="user" className={s.header__user} onClick={() => navigate(`/app/dashboard`)} />
+
             </div>
           </div>
         </div>

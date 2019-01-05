@@ -98,4 +98,13 @@
       background: #fff;
     }
   }
+
+  &__user {
+    margin-left: 10px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    fill: #fff;
+    stroke-width: 3;
+  }
 }

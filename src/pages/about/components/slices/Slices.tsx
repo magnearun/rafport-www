@@ -32,7 +32,7 @@ export default ({ slices = [] }: IProps) => {
           case 'affix':
             return(
               <Affix
-                // image={(<Img fluid={_get(primary, 'affix_image.localFile.childImageSharp.fluid', {})} />)}
+                image={(<Img fluid={_get(primary, 'affix_image.localFile.childImageSharp.fluid')} />)}
                 text={_get(primary, 'text.html', {})}
                 imagePosition={_get(primary, 'image_position', '')}
               />

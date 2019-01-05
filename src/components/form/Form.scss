@@ -1,0 +1,20 @@
+.form {
+  margin: 3rem 0;
+  width: 50%;
+
+  &__label {
+    margin-bottom: 15px;
+  }
+
+  &__input {
+    margin-bottom: 1em;
+  }
+
+  &__button {
+    margin-top: 0.5rem;
+  }
+
+  &__button:hover {
+    cursor: pointer;
+  }
+}

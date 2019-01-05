@@ -1,0 +1,21 @@
+.dashboard {
+  &__logo {
+
+    padding: 24px;
+  }
+
+  &__logout {
+    font-size: 24px;
+    color: #001529;
+    cursor: pointer;
+  }
+
+  &__header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 24px;
+    background: #fff;
+  }
+}
