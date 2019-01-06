@@ -50,16 +50,17 @@ class RegistrationForm extends React.Component<IState> {
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({ ...values })
+          body: encode({ "form-name": 'mailing-list', ...values })
         })
           .then(() => {
             this.setState({ loading: false, success: true });
-            alert("Success!")
+            console.log('form success');
+
           })
           .catch(error => {
             this.setState({ loading: false, success: false });
 
-            alert(error)
+            console.log('form error', error);
           });
       }
     });
