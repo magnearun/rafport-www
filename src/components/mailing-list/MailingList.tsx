@@ -50,7 +50,7 @@ class RegistrationForm extends React.Component<IState> {
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({ "form-name": "postlisti", ...this.state })
+          body: encode({ "form-name": "postlisti", ...values })
         })
           .then(() => {
             this.setState({ loading: false, success: true });
@@ -83,6 +83,7 @@ class RegistrationForm extends React.Component<IState> {
         <img src={Logo} className={s.form__image} />
         <h2 className={s.form__heading}>Póstlisti Rafports</h2>
           <Form name="mailing-list" onSubmit={this.handleSubmit} className={s.form__form} ref={this.formEl}>
+            <input type="hidden" name="form-name" value="mailing-list" />
             <Form.Item
               // {...formItemLayout}
             >
