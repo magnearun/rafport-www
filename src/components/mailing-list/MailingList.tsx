@@ -32,7 +32,7 @@ class RegistrationForm extends React.Component<IState> {
     loading: false,
   };
 
-  componentDidMount() {
+  componentDMount() {
     const formNode: any = ReactDOM.findDOMNode(this.formEl.current);
 
     formNode && formNode.setAttribute('data-netlify', true);
@@ -50,7 +50,7 @@ class RegistrationForm extends React.Component<IState> {
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({ "form-name": "postlisti", ...values })
+          body: encode({ ...values })
         })
           .then(() => {
             this.setState({ loading: false, success: true });
@@ -82,7 +82,7 @@ class RegistrationForm extends React.Component<IState> {
         <div className={s.form}>
         <img src={Logo} className={s.form__image} />
         <h2 className={s.form__heading}>Póstlisti Rafports</h2>
-          <Form name="mailing-list" onSubmit={this.handleSubmit} className={s.form__form} ref={this.formEl}>
+          <form name="mailing-list" onSubmit={this.handleSubmit} className={s.form__form} ref={this.formEl} netlify data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="mailing-list" />
             <Form.Item
               // {...formItemLayout}
@@ -105,7 +105,7 @@ class RegistrationForm extends React.Component<IState> {
               )}
             </Form.Item>
               <Button htmlType="submit" size="large" loading={this.state.loading} className={s.form__button}>Skrá mig</Button>
-          </Form>
+          </form>
         </div>
 
       </Segment>
