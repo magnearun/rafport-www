@@ -82,7 +82,7 @@ class RegistrationForm extends React.Component<IState> {
         <div className={s.form}>
         <img src={Logo} className={s.form__image} />
         <h2 className={s.form__heading}>Póstlisti Rafports</h2>
-          <form name="mailing-list" onSubmit={this.handleSubmit} className={s.form__form} ref={this.formEl} netlify data-netlify-honeypot="bot-field">
+          <form name="mailing-list" onSubmit={this.handleSubmit} className={s.form__form} ref={this.formEl} data-netlify={true} data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="mailing-list" />
             <Form.Item
               // {...formItemLayout}
