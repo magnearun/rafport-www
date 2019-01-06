@@ -29,14 +29,16 @@
       }
     }
   }
-}
 
-:global {
-  .slick-slide {
-    padding: 0 15px;
-  }
+  &Padding {
+    :global {
+      .slick-slide {
+        padding: 0 15px;
+      }
 
-  .slick-list {
-    margin: 0 2em;
+      .slick-list {
+        margin: 0 2em;
+      }
+    }
   }
 }

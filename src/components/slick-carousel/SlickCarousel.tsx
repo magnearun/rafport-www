@@ -72,7 +72,7 @@ export default class SlickCarousel extends PureComponent {
     const hideArrows = (count - 1) === this.props.slidesToShow;
 
     return (
-      <div className={s('carousel', { [s.carouselDefault]: true, [s.carouselHideArrows]: hideArrows })}>
+      <div className={s('carousel', { [s.carouselDefault]: true, [s.carouselHideArrows]: hideArrows, [s.carouselPadding]: this.props.slidesToShow > 1 })}>
         <div className={s.carousel__container}>
           <Carousel
             className={s.slider}

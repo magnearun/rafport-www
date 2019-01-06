@@ -1,4 +1,6 @@
 import React, { Children, cloneElement } from 'react';
+import ReactDOM from 'react-dom';
+
 import Logo from 'assets/images/rafport-icon.png';
 
 import s from './MailingList.scss';
@@ -21,12 +23,20 @@ const encode = (data: any) => {
 
 class RegistrationForm extends React.Component<IState> {
 
+  formEl = React.createRef();
+
   state = {
     confirmDirty: false,
     autoCompleteResult: [],
     success: false,
     loading: false,
   };
+
+  componentDidMount() {
+    const formNode: any = ReactDOM.findDOMNode(this.formEl.current);
+
+    formNode && formNode.setAttribute('data-netlify', true);
+  }
 
 
   handleSubmit = (e) => {
@@ -71,7 +81,7 @@ class RegistrationForm extends React.Component<IState> {
         <div className={s.form}>
         <img src={Logo} className={s.form__image} />
         <h2 className={s.form__heading}>Póstlisti Rafports</h2>
-          <Form onSubmit={this.handleSubmit} className={s.form__form} netlify>
+          <Form onSubmit={this.handleSubmit} className={s.form__form} ref={this.formEl}>
             <Form.Item
               // {...formItemLayout}
             >
@@ -88,12 +98,11 @@ class RegistrationForm extends React.Component<IState> {
                   name="email"
                   className={s.form__input}
                   onChange={this.handleChange}
+                  enterButton="Send"
                 />
               )}
             </Form.Item>
-            <Form.Item>
-              <Button htmlType="submit" size="large" loading={this.state.loading}>Skrá mig</Button>
-            </Form.Item>
+              <Button htmlType="submit" size="large" loading={this.state.loading} className={s.form__button}>Skrá mig</Button>
           </Form>
         </div>
 

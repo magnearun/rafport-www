@@ -45,7 +45,7 @@ export default class Home extends React.PureComponent<any> {
             })}
         </SlickCarousel> */}
 
-        {/* <MailingList /> */}
+        <MailingList />
 
         {/* <Clients>
           <ABB />

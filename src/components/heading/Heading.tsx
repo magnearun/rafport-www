@@ -6,7 +6,8 @@ import s from './Heading.scss';
 
 export default class Heading extends React.PureComponent {
   state = {
-    show: false,
+    showText: false,
+    showLine: false,
     isReady: false,
   };
 
@@ -32,9 +33,15 @@ export default class Heading extends React.PureComponent {
 
       setTimeout(() => {
         this.setState({
-          show: true,
+          showText: true,
         });
       }, 300);
+
+      setTimeout(() => {
+        this.setState({
+          showLine: true,
+        });
+      }, 500);
 
       this.isAnimationComplete = true;
     }
@@ -51,7 +58,7 @@ export default class Heading extends React.PureComponent {
           />
           <Transition
             native
-            items={this.state.show}
+            items={this.state.showText}
             from={{ transform: 'translate3d(0,20px,0)', opacity: 0 }}
             enter={{ transform: 'translate3d(0,0px,0)', opacity: 1 }}
             leave={{ transform: 'translate3d(0,20px,0)', opacity: 0 }}>
@@ -62,7 +69,7 @@ export default class Heading extends React.PureComponent {
 
             <Transition
               native
-              items={this.state.show}
+              items={this.state.showLine}
               from={{ width: 0 }}
               enter={{ width: 100 }}
               leave={{ width: 0 }}>
